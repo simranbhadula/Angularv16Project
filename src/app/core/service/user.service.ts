@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
     constructor(private http: HttpClient) { }
-
+// API for web by simran
     AuthenticateWebUser(userData: any): Observable<any> {
         const url = `https://login.mymobiforce.com/userauthapi/api/Authenticate/AuthenticateWebUser`;
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
