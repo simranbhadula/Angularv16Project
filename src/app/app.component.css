@@ -1,0 +1,11 @@
+.container-fluid{
+    background-image: url(../assets/images/Login_background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 100vh;
+    margin: 0px;
+}
+body{
+    margin: 0px;
+}

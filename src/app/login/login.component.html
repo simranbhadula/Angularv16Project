@@ -1,0 +1,44 @@
+<header>
+    <nav class="navbar navbar-default" style="margin-bottom:50px;">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <a class="navbar-brand"><img src="/src/assets/images/Logo_white.png"></a>
+            </div>
+        </div>
+
+    </nav>
+</header>
+<div class="container" [hidden]="isOTPScreen">
+    <div class="heading">Log In</div>
+    <form class="form" action="">
+        <input placeholder="E-mail Or Mobile Number" id="email" name="email" type="email" class="input" required=""
+            [(ngModel)]="email" />
+        <input placeholder="Password" id="password" name="password" type="password" class="input" required=""
+            [(ngModel)]="password" />
+        <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+        <input value="Continue" type="submit" class="login-button" (click)="onLoginEmail()" />
+    </form>
+    <span class="agreement"><a>Copyright MyMobiforce © 2024</a></span>
+</div>
+<div class="container" [hidden]="!isOTPScreen">
+    <div class="heading">Two-Factor Verification</div><br/>
+    <p class="description">Enter the authentication code below we sent to registered email and phone.</p>
+    <div mat-dialog-content>
+        <div class="phone-input-main">
+            <ng-otp-input (onInputChange)="onOtpChange($event)" inputClass="otp-input"
+                [config]="{ length: 4, allowNumbersOnly : true }"></ng-otp-input>
+        </div>
+        <div class="otp-timer" [hidden]="!resendTimerValue">
+            Resend Code in 00:{{ resendTimerValue }}
+        </div>
+        <div class="otp-timer" (click)="onLoginEmail()" [hidden]="resendTimerValue" style="cursor: pointer">
+            Resend OTP?
+        </div>
+    </div>
+    <div class="submit-back">
+        <input value="Back" type="submit" class="back-button" (click)="onBack()" />
+        <input value="Submit" type="submit" class="submit-button" (click)="onLogin()" />
+    </div>
+
+    <span class="agreement"><a>Copyright MyMobiforce © 2024</a></span>
+</div>
