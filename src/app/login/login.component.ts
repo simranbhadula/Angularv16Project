@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit {
   twoFactoruser: any;
   userCompleteData: any;
   userInfo: any;
-  constructor(private user: UserService, private snackBar: MatSnackBar, private fb: FormBuilder, private router: Router, private authGuard: authGuard) { }
-
+  constructor(private user: UserService, private snackBar: MatSnackBar, private fb: FormBuilder, private router: Router) { }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],

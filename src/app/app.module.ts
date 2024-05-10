@@ -10,13 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthService } from './core/service/auth.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, MatSnackBarModule,NgOtpInputModule, BrowserAnimationsModule,HttpClientModule],
   declarations: [AppComponent, LoginComponent, DashboardComponent],
   bootstrap: [AppComponent],
-  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top' } },UserService,AuthService]
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top' } },UserService]
   
 })
 export class AppModule { }

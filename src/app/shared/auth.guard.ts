@@ -1,17 +1,20 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { AuthService } from "../core/service/auth.service";
+import { CanActivateFn } from "@angular/router";
 
-@Injectable({ providedIn: 'root' })
+// @Injectable({ providedIn: 'root' })
 
-export class authGuard  {
-  protected http: HttpClient;
-  userAuthState: boolean = false;
-  constructor(private authService: AuthService,
-    http: HttpClient) {
-      this.http = http;
-    }
+export const authGuard: CanActivateFn = (route, state) =>{ debugger
+  const Token = localStorage.getItem('Token');
+  const router = Inject(Router);
+  if(Token){
 
+    return true
+  }
+  else{
+    router.navigate(['Login']);
+    return false;
+  }
 }
