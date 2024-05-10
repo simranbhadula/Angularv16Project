@@ -12,6 +12,7 @@ export class DashboardComponent {
     const confirmation = confirm("do you want to logout");
     if(confirmation){
       localStorage.removeItem('Token');
+      localStorage.removeItem('UserId');
       this.router.navigate(['Login']);
     }
   }
